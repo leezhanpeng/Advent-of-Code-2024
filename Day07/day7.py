@@ -10,6 +10,9 @@ def is_solvable(test_value: int, numbers: List[int], current_aggregation: int = 
     if current_aggregation == 0:
         return is_solvable(test_value, numbers, current_aggregation=numbers[0], index=1, include_concat=include_concat)
 
+    if test_value < current_aggregation:
+        return False
+
     solvable = (is_solvable(test_value, numbers, current_aggregation=current_aggregation+numbers[index], index=index+1, include_concat=include_concat) or 
                 is_solvable(test_value, numbers, current_aggregation=current_aggregation*numbers[index], index=index+1, include_concat=include_concat))
     
