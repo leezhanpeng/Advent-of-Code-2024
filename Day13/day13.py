@@ -20,11 +20,11 @@ with open("input.txt", "r") as input_file:
         if input_line.strip() == "":
             machines.append({})
         elif "button_a" not in machines[-1]:
-            machines[-1]["button_a"] = list(map(lambda num: int(num[1:]), re.findall(r"\+\d+", input_line)))
+            machines[-1]["button_a"] = list(map(int, re.findall(r"\+(\d+)", input_line)))
         elif "button_b" not in machines[-1]:
-            machines[-1]["button_b"] = list(map(lambda num: int(num[1:]), re.findall(r"\+\d+", input_line)))
+            machines[-1]["button_b"] = list(map(int, re.findall(r"\+(\d+)", input_line)))
         else:
-            machines[-1]["goal"] = list(map(lambda num: int(num[1:]), re.findall(r"\=\d+", input_line)))
+            machines[-1]["goal"] = list(map(int, re.findall(r"\=(\d+)", input_line)))
 
 for machine in machines:
     goal, button_a, button_b = machine["goal"], machine["button_a"], machine["button_b"]
