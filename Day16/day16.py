@@ -52,7 +52,7 @@ while heap:
     if grid[next_location[0]][next_location[1]] != "#":
         path_history_copy = path_history.copy()
         path_history_copy.append(location)
-        heapq.heappush(heap, (score+1, next_location, direction_index,path_history_copy))
+        heapq.heappush(heap, (score+1, next_location, direction_index, path_history_copy))
 
     # Turn
     clockwise_index = (direction_index + 1) % 4
